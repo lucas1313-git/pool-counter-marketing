@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Master Counter — Investor Overview</title>
+<meta name="description" content="Pool Master Counter: a local-first, zero-setup pool scoring app with career stats, Elo-style ratings, tournaments, and a live monetization path via StoreKit — for phone, tablet, and desktop.">
+<link rel="icon" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --felt: #0e2e24;
+    --felt-deep: #081a15;
+    --felt-light: #143c2f;
+    --ink: #eef2ee;
+    --ink-dim: #b9c7bf;
+    --gold: #d9b25f;
+    --gold-bright: #f0cd7e;
+    --crimson: #a4283a;
+    --crimson-bright: #c93b4f;
+    --line: rgba(238, 242, 238, 0.12);
+    --card: rgba(255, 255, 255, 0.035);
+    --card-border: rgba(255, 255, 255, 0.09);
+    --radius: 18px;
+    --maxw: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background:
+      radial-gradient(1100px 700px at 15% -10%, #16473700 0%, transparent 60%),
+      radial-gradient(1400px 900px at 85% 0%, #1a4d3a55 0%, transparent 55%),
+      linear-gradient(180deg, var(--felt-deep) 0%, var(--felt) 40%, var(--felt-deep) 100%);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+
+  a { color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(8, 26, 21, 0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.08rem; text-decoration: none; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  nav.links { display: flex; gap: 28px; font-size: 0.93rem; color: var(--ink-dim); }
+  nav.links a { text-decoration: none; transition: color .15s; }
+  nav.links a:hover { color: var(--gold-bright); }
+  .nav-cta {
+    background: var(--gold); color: #201405; font-weight: 700; font-size: 0.88rem;
+    padding: 9px 18px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(217,178,95,0.25);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(217,178,95,0.35); }
+  @media (max-width: 780px) { nav.links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 84px 0 60px; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  @media (max-width: 940px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--gold-bright); background: rgba(217,178,95,0.1);
+    border: 1px solid rgba(217,178,95,0.3); padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 22px; font-weight: 600;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-bright); }
+
+  .hero h1 { font-size: clamp(2.4rem, 4.6vw, 3.65rem); line-height: 1.06; color: #fff; }
+  .hero h1 em { font-style: normal; color: var(--gold-bright); }
+  .hero p.lead { font-size: 1.15rem; color: var(--ink-dim); margin-top: 22px; max-width: 54ch; }
+
+  .hero-ctas { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 24px; border-radius: 12px; font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; transition: transform .15s, box-shadow .15s, background .15s;
+    border: 1px solid transparent;
+  }
+  .btn-primary { background: linear-gradient(180deg, var(--gold-bright), var(--gold)); color: #201405; box-shadow: 0 10px 26px rgba(217,178,95,0.28); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(217,178,95,0.38); }
+  .btn-ghost { border-color: var(--card-border); color: var(--ink); background: rgba(255,255,255,0.03); }
+  .btn-ghost:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+
+  .hero-stats { display: flex; gap: 30px; margin-top: 46px; flex-wrap: wrap; }
+  .hero-stat b { display: block; font-family: 'Fraunces', serif; font-size: 1.5rem; color: #fff; }
+  .hero-stat span { font-size: 0.82rem; color: var(--ink-dim); }
+
+  .hero-shot {
+    position: relative; border-radius: 22px; overflow: hidden;
+    border: 1px solid var(--card-border); background: var(--felt-light);
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03);
+    transform: perspective(1400px) rotateY(-6deg) rotateX(2deg);
+  }
+  .hero-shot img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-shot .chip {
+    position: absolute; bottom: 16px; left: 16px;
+    background: rgba(8,26,21,0.85); border: 1px solid var(--card-border);
+    padding: 8px 14px; border-radius: 10px; font-size: 0.82rem; color: var(--ink-dim);
+    backdrop-filter: blur(6px);
+  }
+  @media (max-width: 940px) { .hero-shot { transform: none; } }
+
+  /* ---------- section scaffolding ---------- */
+  section { padding: 86px 0; }
+  .section-head { max-width: 680px; margin: 0 auto 52px; text-align: center; }
+  .section-head.left { text-align: left; margin: 0 0 44px; }
+  .kicker { color: var(--gold-bright); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; display: block; }
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); color: #fff; }
+  .section-head p { color: var(--ink-dim); margin-top: 14px; font-size: 1.03rem; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
+
+  /* ---------- feature grid ---------- */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .grid3, .grid2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+    padding: 28px 26px; transition: transform .18s, border-color .18s, background .18s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: rgba(217,178,95,0.35); background: rgba(255,255,255,0.055); }
+  .card .icon {
+    width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(217,178,95,0.22), rgba(164,40,58,0.18));
+    font-size: 1.25rem; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 1.08rem; color: #fff; margin-bottom: 10px; }
+  .card p { color: var(--ink-dim); font-size: 0.93rem; margin: 0; }
+
+  /* ---------- showcase (screenshot + copy) ---------- */
+  .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .showcase.rev { grid-template-columns: 1fr 1fr; }
+  .showcase.rev .showcase-copy { order: 2; }
+  .showcase.rev .showcase-shot { order: 1; }
+  @media (max-width: 900px) {
+    .showcase, .showcase.rev { grid-template-columns: 1fr; }
+    .showcase.rev .showcase-copy, .showcase.rev .showcase-shot { order: initial; }
+  }
+  .showcase-shot {
+    border-radius: var(--radius); overflow: hidden; border: 1px solid var(--card-border);
+    background: var(--felt-deep); box-shadow: 0 30px 60px -25px rgba(0,0,0,0.55);
+    display: flex; align-items: center; justify-content: center; padding: 10px;
+  }
+  .showcase-shot img { border-radius: 12px; width: 100%; height: auto; object-fit: contain; max-height: 460px; }
+  .showcase-copy .kicker { margin-bottom: 10px; }
+  .showcase-copy h3 { font-size: 1.6rem; color: #fff; margin-bottom: 16px; }
+  .showcase-copy p { color: var(--ink-dim); font-size: 1rem; }
+  .showcase-copy ul { padding-left: 20px; margin: 18px 0 0; color: var(--ink-dim); font-size: 0.95rem; }
+  .showcase-copy li { margin-bottom: 9px; }
+  .showcase-copy li b { color: var(--ink); }
+
+  /* ---------- pill row ---------- */
+  .pillrow { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .pill {
+    border: 1px solid var(--card-border); background: rgba(255,255,255,0.03);
+    padding: 9px 16px; border-radius: 999px; font-size: 0.86rem; color: var(--ink-dim);
+  }
+
+  /* ---------- business model ---------- */
+  .biz-wrap {
+    background: linear-gradient(155deg, rgba(217,178,95,0.09), rgba(164,40,58,0.07));
+    border: 1px solid rgba(217,178,95,0.25); border-radius: 24px; padding: 54px;
+  }
+  @media (max-width: 700px) { .biz-wrap { padding: 32px 22px; } }
+  .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 36px; }
+  @media (max-width: 860px) { .biz-grid { grid-template-columns: 1fr; } }
+  .biz-item { display: flex; gap: 16px; }
+  .biz-item .num {
+    flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--gold); color: #201405; font-weight: 800; font-family: 'Fraunces', serif;
+    display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+  }
+  .biz-item h4 { color: #fff; font-size: 1.03rem; margin-bottom: 6px; }
+  .biz-item p { color: var(--ink-dim); font-size: 0.92rem; margin: 0; }
+
+  /* ---------- stack / tech ---------- */
+  .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stack-card {
+    text-align: center; padding: 26px 16px; border: 1px solid var(--card-border);
+    border-radius: 14px; background: rgba(255,255,255,0.03);
+  }
+  .stack-card .big { font-family: 'Fraunces', serif; font-size: 1.7rem; color: var(--gold-bright); margin-bottom: 6px; }
+  .stack-card span { font-size: 0.85rem; color: var(--ink-dim); }
+
+  /* ---------- gallery strip ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .gallery figure {
+    margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--card-border);
+    background: var(--felt-deep); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+  }
+  .gallery img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+  .gallery figcaption { display: none; }
+
+  /* ---------- CTA / contact ---------- */
+  .cta-section {
+    text-align: center; border-radius: 26px; padding: 70px 40px;
+    background: radial-gradient(800px 400px at 50% 0%, rgba(217,178,95,0.14), transparent 70%),
+                linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid var(--card-border);
+  }
+  .cta-section h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); color: #fff; }
+  .cta-section p { color: var(--ink-dim); max-width: 56ch; margin: 16px auto 30px; font-size: 1.05rem; }
+
+  footer { padding: 46px 0 70px; border-top: 1px solid var(--line); margin-top: 40px; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .foot-inner .brand { font-size: 0.95rem; }
+  footer p.small { color: var(--ink-dim); font-size: 0.82rem; margin: 0; }
+  footer .foot-links { display: flex; gap: 20px; font-size: 0.85rem; color: var(--ink-dim); }
+  footer a { text-decoration: none; }
+  footer .foot-links a:hover { color: var(--gold-bright); }
+
+  ::selection { background: rgba(217,178,95,0.35); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/icons/favicon-32.png" alt="">
+      Pool Master Counter
+    </a>
+    <nav class="links">
+      <a href="#product">Product</a>
+      <a href="#tournaments">Tournaments</a>
+      <a href="#stats">Stats &amp; Ratings</a>
+      <a href="#business">Business Model</a>
+      <a href="#tech">Under the Hood</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Live product · Web, PWA &amp; native iOS</span>
+        <h1>The scoreboard pool players<br><em>actually</em> open every night.</h1>
+        <p class="lead">Pool Master Counter turns any phone, tablet, or laptop into a full pool-hall companion — live scoring, brackets, career stats, and Elo-style ratings — with zero setup, no account, and no server. Built as a real product first; the monetization rails are already wired in.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://lucas1313-git.github.io/Pool-master-counter/" target="_blank" rel="noopener">▶ Try the live app</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>4</b><span>languages, fully localized</span></div>
+          <div class="hero-stat"><b>10</b><span>WCAG-legible themes</span></div>
+          <div class="hero-stat"><b>2</b><span>platforms — web app + native iOS</span></div>
+          <div class="hero-stat"><b>$0</b><span>marginal hosting cost per user</span></div>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img src="assets/screenshots/live-scoreboard.jpg" alt="Pool Master Counter live scoreboard">
+        <div class="chip">Live scoreboard — mid-session</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- PRODUCT OVERVIEW -->
+  <section id="product">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">The Product</span>
+        <h2>One app, everything a night of pool needs</h2>
+        <p>No login wall, no setup screen full of forms — the Setup Wizard gets a table playing in five plain-language steps, and everything from there is one tap away.</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🎱</div>
+          <h3>Live scoreboard</h3>
+          <p>Tap +/− to track balls, points, or racks toward any game's target — 8-Ball, 9-Ball, Straight Pool, One Pocket, and more. Wins bank automatically and the next game starts itself, with milestone and "on the hill" pop-ups celebrating close finishes.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧙</div>
+          <h3>Setup Wizard</h3>
+          <p>Five short steps — game type, players, who's playing vs. standby, rotation, review — take a table from cold start to Focus Mode, the distraction-free full-screen scoreboard, in under a minute.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔁</div>
+          <h3>Game Order rotations</h3>
+          <p>Cycle automatically through a sequence of rules — one rack of 8-Ball, then three, then 9-Ball — with saved rotations that reload with one tap, exactly like saved player lists.</p>
+        </div>
+        <div class="card">
+          <div class="icon">👥</div>
+          <h3>Players &amp; saved lists</h3>
+          <p>Case-insensitive name matching, automatic capitalization, and duplicate-safe imports. Every distinct group you've ever played with is auto-saved and one click away — no manual bookkeeping.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎨</div>
+          <h3>Ten themes, real accessibility</h3>
+          <p>Dark, bright, and high-contrast palettes — every accent color is computed per-theme to stay legible rather than assumed, so nothing ever renders as barely-readable text on a bright background.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔊</div>
+          <h3>Synthesized sound</h3>
+          <p>Every tone is generated on the fly with the Web Audio API — no audio files to ship. Milestone wins get the full 30-note "Ode to Joy" theme, pitched low with a synthetic reverb tail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: TOURNAMENTS -->
+  <section id="tournaments">
+    <div class="wrap">
+      <div class="showcase">
+        <div class="showcase-copy">
+          <span class="kicker">Tournaments</span>
+          <h3>Single elimination, double elimination, or round robin — run any night as a real event</h3>
+          <p>One tap turns a regular session into a bracket. The bracket renders as a horizontal tree with connector lines so the whole shape is visible at a glance; round robin shows live standings plus every matchup at once.</p>
+          <ul>
+            <li><b>Double elimination</b> — the default: lose once, drop to a losers bracket, lose twice and you're out.</li>
+            <li><b>Single elimination</b> — faster, no second chances.</li>
+            <li><b>Round robin</b> — everyone plays everyone; best for casual groups.</li>
+            <li><b>Race-to-N sessions count as tournaments too</b> — derived automatically and retroactively from existing game history, no separate data pool.</li>
+          </ul>
+        </div>
+        <div class="showcase-shot">
+          <img src="assets/screenshots/tournament-roundrobin.jpg" alt="Round robin tournament: live standings and every match at once">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: STATS -->
+  <section id="stats">
+    <div class="wrap">
+      <div class="showcase rev">
+        <div class="showcase-copy">
+          <span class="kicker">Stats &amp; Ratings</span>
+          <h3>Every player gets a career, not just a running score</h3>
+          <p>Every player who has ever played on a device shows up on All Players — with sortable, filterable bar and cumulative-graph views, head-to-head records, and a click-to-inspect tooltip on any data point.</p>
+          <ul>
+            <li><b>Elo-style ratings</b> inspired by the scale FargoRate publishes (the system behind USA Pool League), updated automatically after every game — never editable by hand.</li>
+            <li><b>Team-aware</b> — each side's average rating drives the win-probability calculation; the resulting change applies to every teammate.</li>
+            <li><b>Full history, not just a number</b> — click any rating point to see exactly what happened: this player's change and every opponent's change from that same game.</li>
+          </ul>
+        </div>
+        <div class="showcase-shot">
+          <img src="assets/screenshots/all-players-graph.jpg" alt="All Players graph view with rating history">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FEATURES GRID -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">And the details that make it stick</span>
+        <h2>Built like a product people rely on, not a demo</h2>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">📝</div>
+          <h3>Day Reports</h3>
+          <p>A running notes box plus one-tap Copy / Email / Text reports — every player's win/loss record, rating movement, and games played that day, ready to send as-is.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💾</div>
+          <h3>Backup &amp; data safety</h3>
+          <p>Full JSON export/import with intelligent merge (no double-counted games), a dedicated player-list format, and confirm-first resets that always back up before they touch anything.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔒</div>
+          <h3>Local-first privacy</h3>
+          <p>Everything lives in the browser's local storage on the device it's used on. No server, no account, nothing transmitted — a real answer to "where's my data" that most competitors can't give.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🌍</div>
+          <h3>Fully localized</h3>
+          <p>English, French, Spanish, and Cantonese — every string, every page, kept in parity as the product grows.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📱</div>
+          <h3>Installable PWA + native iOS</h3>
+          <p>Add-to-homescreen on any device today, plus a Capacitor-wrapped native iOS build already in progress for the App Store.</p>
+        </div>
+        <div class="card">
+          <div class="icon">❓</div>
+          <h3>Built-in Help &amp; Guide</h3>
+          <p>One contextual guide covers every page, jumping straight to the relevant section wherever it's opened from — no separate docs site to maintain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- BUSINESS MODEL -->
+  <section id="business">
+    <div class="wrap">
+      <div class="biz-wrap">
+        <div class="section-head left" style="margin-bottom:0;">
+          <span class="kicker">Business Model</span>
+          <h2 style="color:#fff;">The monetization path isn't a slide — it's shipped code</h2>
+          <p style="max-width:70ch;">Rather than pitch a hypothetical paywall, we built the real thing: a native in-app purchase flow on iOS, backed by Apple's StoreKit 2, gating a real premium feature today — with the freedom to expand what's gated as the product and audience grow.</p>
+        </div>
+        <div class="biz-grid">
+          <div class="biz-item">
+            <div class="num">1</div>
+            <div>
+              <h4>Freemium core, native IAP unlock</h4>
+              <p>The full scoring, stats, and tournament engine stays free on web — the way it's earned its users so far. On the native iOS app, a one-time Pro unlock (real Apple StoreKit 2 purchase, receipt-verified) removes the gate on premium features, starting with the Colorful Report export.</p>
+            </div>
+          </div>
+          <div class="biz-item">
+            <div class="num">2</div>
+            <div>
+              <h4>Rewarded-ad alternative</h4>
+              <p>Players who'd rather not pay can unlock the same premium feature for a single session by watching a short rewarded ad — a familiar, low-friction mobile monetization pattern already wired into the same gate.</p>
+            </div>
+          </div>
+          <div class="biz-item">
+            <div class="num">3</div>
+            <div>
+              <h4>Expandable gate, not a one-off hack</h4>
+              <p>The unlock check (<code>requireProOrShowPaywall</code>) wraps any feature in one line. Deciding what stays free vs. Pro is a product decision, not an engineering one — new premium features ship behind the same infrastructure with no rework.</p>
+            </div>
+          </div>
+          <div class="biz-item">
+            <div class="num">4</div>
+            <div>
+              <h4>Near-zero cost to serve</h4>
+              <p>The web app is a static site with no backend, no database, and no per-user infrastructure cost — gross margin on the free tier is effectively 100%, so every converted user drops straight to the bottom line.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Why This, Why Now</span>
+        <h2>The gap between a napkin and enterprise league software</h2>
+        <p>Casual and league pool is played every night in bars, clubs, and home tables worldwide — today's options are a scrap of paper, a generic tally-counter app with no memory of who played, or heavyweight league-management platforms built for administrators, not the table. Pool Master Counter sits in the gap: real stats and tournament structure, with the zero-friction setup of a scoring app.</p>
+      </div>
+      <div class="pillrow">
+        <span class="pill">🎱 Bar &amp; pub leagues</span>
+        <span class="pill">🏆 Weekly tournament nights</span>
+        <span class="pill">🏠 Home tables &amp; regular groups</span>
+        <span class="pill">🎓 Pool halls &amp; clubs</span>
+        <span class="pill">📱 Casual players who just want a score kept</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">A Closer Look</span>
+        <h2>Every surface, from setup to the trophy</h2>
+      </div>
+      <div class="gallery">
+        <figure><img src="assets/screenshots/wizard-step1.jpg" alt="Setup Wizard"></figure>
+        <figure><img src="assets/screenshots/setup-panels.jpg" alt="Game Order and Current Game panels"></figure>
+        <figure><img src="assets/screenshots/themes.jpg" alt="Theme selector"></figure>
+        <figure><img src="assets/screenshots/players-panel.jpg" alt="Players panel"></figure>
+        <figure><img src="assets/screenshots/tournament-bracket.jpg" alt="Elimination bracket"></figure>
+        <figure><img src="assets/screenshots/all-players-bars.jpg" alt="All Players bar view"></figure>
+        <figure><img src="assets/screenshots/player-stats-page.jpg" alt="Individual player stats page"></figure>
+        <figure><img src="assets/screenshots/day-notes.jpg" alt="Today's Notes and Day Report"></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- TECH -->
+  <section id="tech">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Under the Hood</span>
+        <h2>Lean by design — built to keep working, and keep costing nothing</h2>
+        <p>No framework, no build step, no backend. That's not a limitation — it's why the product has stayed reliable and cheap to run while every feature above got built.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="big">0</div>
+          <span>Servers or databases — the web app is entirely static and client-side</span>
+        </div>
+        <div class="stack-card">
+          <div class="big">2</div>
+          <span>Platforms from one codebase — installable PWA and a Capacitor-wrapped native iOS app</span>
+        </div>
+        <div class="stack-card">
+          <div class="big">✓</div>
+          <span>Automated test coverage — a full Selenium/pytest browser suite plus native XCUITest coverage on iOS</span>
+        </div>
+        <div class="stack-card">
+          <div class="big">4</div>
+          <span>Languages shipped in full parity: English, French, Spanish, Cantonese</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-section">
+        <span class="eyebrow"><span class="dot"></span> For investors</span>
+        <h2>A working product, a built-in monetization path, and room to grow</h2>
+        <p>Pool Master Counter is live today, in active use, with real in-app purchase infrastructure already shipped on iOS. If you'd like a walkthrough, the roadmap, or access to the codebase, we'd welcome the conversation.</p>
+        <div class="hero-ctas" style="justify-content:center;">
+          <a class="btn btn-primary" href="mailto:alchemist@thebotanicalalchemy.com?subject=Pool%20Master%20Counter%20—%20Investor%20Inquiry">✉ Contact us</a>
+          <a class="btn btn-ghost" href="https://lucas1313-git.github.io/Pool-master-counter/" target="_blank" rel="noopener">Try the live app</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top">
+      <img src="assets/icons/favicon-32.png" alt="" style="width:22px;height:22px;">
+      Pool Master Counter
+    </a>
+    <p class="small">© 2026 Pool Master Counter. This overview is prepared for prospective investors and partners.</p>
+    <div class="foot-links">
+      <a href="https://lucas1313-git.github.io/Pool-master-counter/" target="_blank" rel="noopener">Live app</a>
+      <a href="mailto:alchemist@thebotanicalalchemy.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
