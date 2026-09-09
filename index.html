@@ -187,6 +187,35 @@
     box-shadow: 0 1px 3px rgba(28,33,29,0.04);
   }
 
+  /* ---------- competitive comparison table ---------- */
+  .compare-wrap {
+    overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--card-border);
+    background: #fff; box-shadow: 0 1px 3px rgba(28,33,29,0.04), 0 10px 24px -18px rgba(28,33,29,0.14);
+  }
+  table.compare-table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 0.92rem; }
+  table.compare-table th, table.compare-table td {
+    padding: 15px 18px; text-align: center; border-bottom: 1px solid var(--card-border);
+    white-space: nowrap;
+  }
+  table.compare-table td:first-child, table.compare-table th:first-child {
+    text-align: left; color: var(--ink); font-weight: 600; white-space: normal; min-width: 220px;
+  }
+  table.compare-table thead th {
+    font-family: 'Fraunces', serif; font-weight: 600; color: var(--ink-dim);
+    font-size: 0.98rem; padding-top: 20px; padding-bottom: 20px;
+  }
+  table.compare-table thead th.us { color: var(--ink); }
+  table.compare-table tbody tr:last-child td { border-bottom: none; }
+  table.compare-table td.us, table.compare-table th.us {
+    background: rgba(201,154,61,0.14); border-left: 2px solid var(--gold);
+    border-right: 2px solid var(--gold); position: relative;
+  }
+  table.compare-table thead th.us { box-shadow: inset 0 3px 0 var(--gold); }
+  table.compare-table .yes { color: var(--gold-ink); font-weight: 700; }
+  table.compare-table .no { color: var(--ink-dim); opacity: 0.55; }
+  table.compare-table td span.sub { display: block; font-size: 0.78rem; color: var(--ink-dim); font-weight: 400; margin-top: 2px; }
+  .compare-note { font-size: 0.82rem; color: var(--ink-dim); margin-top: 16px; text-align: center; }
+
   /* ---------- business model ---------- */
   /* The one deliberately dark panel on the page - felt green with gold
      accents, echoing the app's own default theme. Locally overrides the
@@ -278,6 +307,7 @@
       <a href="#tournaments">Tournaments</a>
       <a href="#stats">Stats &amp; Ratings</a>
       <a href="#business">Business Model</a>
+      <a href="#compare">Comparison</a>
       <a href="#tech">Under the Hood</a>
     </nav>
     <a class="nav-cta" href="#contact">Get in touch</a>
@@ -517,6 +547,106 @@
         <span class="pill">🎓 Pool halls &amp; clubs</span>
         <span class="pill">📱 Casual players who just want a score kept</span>
       </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE COMPARISON -->
+  <section id="compare">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Competitive Landscape</span>
+        <h2>Where Pool Master Counter sits</h2>
+        <p>Against the real alternatives players reach for today — a generic scorekeeping app, a practice/club manager, an official league app, or just paper — nothing else combines zero-setup live scoring, real tournament structure, a portable skill rating, and a free web app with a shipped native monetization path.</p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="us">Pool Master<br>Counter</th>
+              <th>The Green<br>Felt Club</th>
+              <th>BilliardManager</th>
+              <th>APA<br>Scorekeeper</th>
+              <th>Paper /<br>generic tally app</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Free to start, no account</td>
+              <td class="us yes">✓</td>
+              <td class="yes">✓<span class="sub">org/venue plans extra</span></td>
+              <td class="yes">✓<span class="sub">Pro/Club tiers</span></td>
+              <td class="no">✗<span class="sub">requires APA league membership</span></td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Live tap-to-score scoreboard</td>
+              <td class="us yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="no">manual</td>
+            </tr>
+            <tr>
+              <td>Built-in tournament brackets<span class="sub">single / double elim, round robin</span></td>
+              <td class="us yes">✓</td>
+              <td class="no">—</td>
+              <td class="yes">league/WPA formats</td>
+              <td class="yes">league-format only</td>
+              <td class="no">✗</td>
+            </tr>
+            <tr>
+              <td>Career stats &amp; match history</td>
+              <td class="us yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+              <td class="no">✗</td>
+            </tr>
+            <tr>
+              <td>Portable skill rating<span class="sub">Elo-style, FargoRate-inspired</span></td>
+              <td class="us yes">✓</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="no">APA handicap only</td>
+              <td class="no">✗</td>
+            </tr>
+            <tr>
+              <td>Fully offline, on-device data</td>
+              <td class="us yes">✓</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="no">✗</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Free web app + native iOS</td>
+              <td class="us yes">✓ both</td>
+              <td class="no">app only</td>
+              <td class="no">app only</td>
+              <td class="no">app only</td>
+              <td class="no">✗</td>
+            </tr>
+            <tr>
+              <td>Multi-language</td>
+              <td class="us yes">✓ 4 languages</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="no">—</td>
+              <td class="no">✗</td>
+            </tr>
+            <tr>
+              <td>Native in-app purchase live today</td>
+              <td class="us yes">✓</td>
+              <td class="yes">org subscriptions</td>
+              <td class="yes">Pro/Club subscriptions</td>
+              <td class="no">tied to league fees</td>
+              <td class="no">✗</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-note">Comparison reflects each app's public store listing / website as of September 2026 — feature sets change; see each app's own listing for current details.</p>
     </div>
   </section>
 
