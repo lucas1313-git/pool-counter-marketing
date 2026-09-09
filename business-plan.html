@@ -222,15 +222,35 @@
   <section class="plan-section" id="product">
     <h2><span class="num">3.</span> Product Overview</h2>
     <p>The product ships today as a free, installable web app (PWA) and a native iOS app built on the same codebase via Capacitor. Core capabilities:</p>
+
+    <h3>Setup &amp; live play</h3>
     <ul>
       <li><strong>Setup Wizard</strong> — a five-step flow that gets any table playing in under a minute, no account required.</li>
       <li><strong>Live scoreboard</strong> — tap-to-score for 8-Ball, 9-Ball, Straight Pool, One Pocket, and more, with automatic win detection and milestone celebrations.</li>
-      <li><strong>Tournaments</strong> — single elimination, double elimination, and round robin, with live brackets and standings.</li>
-      <li><strong>Career stats &amp; ratings</strong> — every player gets a win/loss history, head-to-head records, and an automatic Elo-style rating inspired by the scale FargoRate (the system behind USA Pool League) publishes.</li>
-      <li><strong>Day Reports</strong> — one-tap shareable summaries of a night's play, ready to text, email, or copy.</li>
-      <li><strong>Ten themes, four languages</strong> — dark, bright, and high-contrast palettes with WCAG-legible color computation; full parity across English, French, Spanish, and Cantonese.</li>
-      <li><strong>Local-first data</strong> — everything lives in the browser's local storage on-device. No server, no account, nothing transmitted, with full JSON export/import for backup and device transfer.</li>
+      <li><strong>Game Order rotations</strong> — cycle automatically through a sequence of rules (e.g. one rack of 8-Ball, then three, then 9-Ball), with saved rotations that reload in one tap.</li>
+      <li><strong>Team play</strong> — Individual or Teams mode for the whole session; team ratings, stats, and career graphs (a separate line per teammate combination) are tracked alongside individual play, not bolted on separately.</li>
+      <li><strong>Shot counter / timer</strong> — an optional on-screen stopwatch per turn with a configurable beep interval, for groups that want to keep pace competitive-style without a separate physical timer.</li>
     </ul>
+
+    <h3>Tournaments &amp; competitive structure</h3>
+    <ul>
+      <li><strong>Tournaments</strong> — single elimination, double elimination, and round robin, with live brackets and standings.</li>
+      <li><strong>Fargo-balanced &quot;Fair Race&quot;</strong> — an optional handicapping mode that uses each player's rating to auto-set a fair individual race-to target for both regular sessions and tournaments, so mismatched skill levels can still play a competitive race without manual handicapping.</li>
+    </ul>
+
+    <h3>Stats &amp; ratings</h3>
+    <ul>
+      <li><strong>Career stats &amp; ratings</strong> — every player gets a win/loss history, head-to-head records, and an automatic Elo-style rating inspired by the scale FargoRate (the system behind USA Pool League) publishes; used both to display a player's strength and to power Fair Race handicapping above.</li>
+      <li><strong>Day Reports</strong> — one-tap shareable summaries of a night's play, ready to text, email, or copy.</li>
+    </ul>
+
+    <h3>Data, reach &amp; accessibility</h3>
+    <ul>
+      <li><strong>Local-first data</strong> — everything lives in the browser's local storage on-device. No server, no account, nothing transmitted.</li>
+      <li><strong>Detailed export/import</strong> — a full JSON export of the entire picture (live session, saved player lists, rotations, every player's career stats and full rating history) with intelligent merge-on-import (no double-counted games), plus separate one-tap exports for a single session, a single player's stats, or just a player list in a hand-editable format — and an automatic backup download every time the roster changes, so nothing is ever one accidental reset away from being lost.</li>
+      <li><strong>Ten themes, four languages</strong> — dark, bright, and high-contrast palettes with WCAG-legible color computation; full parity across English, French, Spanish, and Cantonese.</li>
+    </ul>
+
     <p>See the full feature walkthrough and screenshots in the <a href="index.html#product">investor overview</a> and the <a href="index.html#demo">demo video</a>.</p>
   </section>
 
