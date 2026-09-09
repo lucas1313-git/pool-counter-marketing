@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pool Master Counter — Business Plan</title>
+<meta name="description" content="Business plan for Pool Master Counter: product, market, business model, competitive landscape, roadmap, and financial plan.">
+<link rel="icon" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --felt: #0e2e24; --felt-deep: #081a15; --felt-light: #143c2f;
+    --bg: #faf7f1; --ink: #1c211d; --ink-dim: #5b6459;
+    --gold: #c99a3d; --gold-bright: #f0cd7e; --gold-ink: #8a661d;
+    --crimson: #a4283a;
+    --line: rgba(28, 33, 29, 0.10);
+    --card: #ffffff;
+    --card-border: rgba(28, 33, 29, 0.09);
+    --placeholder-bg: rgba(164, 40, 58, 0.06);
+    --placeholder-border: rgba(164, 40, 58, 0.35);
+    --maxw: 840px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background:
+      radial-gradient(1000px 600px at 85% -5%, rgba(201,154,61,0.10) 0%, transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; margin: 0; letter-spacing: -0.01em; color: var(--ink); }
+
+  a { color: var(--gold-ink); }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(250, 247, 241, 0.88);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.02rem; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .brand img { width: 26px; height: 26px; border-radius: 7px; }
+  .back-link { font-size: 0.85rem; color: var(--ink-dim); text-decoration: none; white-space: nowrap; }
+  .back-link:hover { color: var(--gold-ink); }
+
+  /* ---------- cover ---------- */
+  .cover { padding: 64px 0 40px; text-align: center; }
+  .cover .kicker {
+    color: var(--gold-ink); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 16px; display: block;
+  }
+  .cover h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.1; }
+  .cover p.tagline { color: var(--ink-dim); font-size: 1.08rem; margin-top: 14px; }
+  .cover .meta { margin-top: 22px; font-size: 0.85rem; color: var(--ink-dim); }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); margin: 40px 0; }
+
+  /* ---------- TOC ---------- */
+  .toc {
+    background: #fff; border: 1px solid var(--card-border); border-radius: 16px;
+    padding: 26px 30px; margin: 30px 0 50px;
+    box-shadow: 0 1px 3px rgba(28,33,29,0.04);
+  }
+  .toc h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-ink); margin-bottom: 14px; }
+  .toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 30px; }
+  .toc li { margin-bottom: 8px; font-size: 0.92rem; break-inside: avoid; }
+  .toc a { text-decoration: none; color: var(--ink); }
+  .toc a:hover { color: var(--gold-ink); }
+  @media (max-width: 640px) { .toc ol { columns: 1; } }
+
+  /* ---------- sections ---------- */
+  section.plan-section { padding: 10px 0 46px; scroll-margin-top: 80px; }
+  section.plan-section h2 {
+    font-size: 1.55rem; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 2px solid var(--gold);
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  section.plan-section h2 .num { color: var(--gold-ink); font-size: 1.1rem; }
+  section.plan-section h3 { font-size: 1.15rem; margin: 26px 0 10px; }
+  section.plan-section p { margin: 0 0 14px; color: var(--ink); }
+  section.plan-section ul, section.plan-section ol.plain { margin: 0 0 14px; padding-left: 22px; }
+  section.plan-section li { margin-bottom: 8px; }
+  section.plan-section strong { color: var(--ink); }
+
+  .lede { font-size: 1.08rem; color: var(--ink-dim); }
+
+  /* ---------- callout / placeholder boxes ---------- */
+  .callout {
+    background: #fff; border: 1px solid var(--card-border); border-radius: 14px;
+    padding: 20px 24px; margin: 16px 0; box-shadow: 0 1px 3px rgba(28,33,29,0.04);
+  }
+  .callout.gold { background: rgba(201,154,61,0.07); border-color: rgba(201,154,61,0.3); }
+
+  .placeholder {
+    background: var(--placeholder-bg); border: 1.5px dashed var(--placeholder-border);
+    border-radius: 14px; padding: 20px 24px; margin: 16px 0;
+  }
+  .placeholder .tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--crimson); background: rgba(164,40,58,0.1);
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .placeholder p:last-child { margin-bottom: 0; }
+  .placeholder em { color: var(--ink-dim); }
+
+  /* ---------- tables ---------- */
+  .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--card-border); background: #fff; margin: 16px 0; }
+  table.plan-table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 0.9rem; }
+  table.plan-table th, table.plan-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--card-border); }
+  table.plan-table thead th { font-family: 'Fraunces', serif; font-weight: 600; color: var(--ink-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.plan-table tbody tr:last-child td { border-bottom: none; }
+  table.plan-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* ---------- roadmap timeline ---------- */
+  .roadmap { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .roadmap-item { display: flex; gap: 18px; padding-bottom: 24px; position: relative; }
+  .roadmap-item::before {
+    content: ''; position: absolute; left: 9px; top: 24px; bottom: 0; width: 2px; background: var(--line);
+  }
+  .roadmap-item:last-child::before { display: none; }
+  .roadmap-dot {
+    flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--gold); border: 3px solid #fff; box-shadow: 0 0 0 1px var(--gold);
+    margin-top: 2px;
+  }
+  .roadmap-item.done .roadmap-dot { background: var(--felt); box-shadow: 0 0 0 1px var(--felt); }
+  .roadmap-content h4 { font-size: 1rem; margin-bottom: 4px; }
+  .roadmap-content .when { font-size: 0.78rem; color: var(--gold-ink); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .roadmap-content p { margin: 6px 0 0; font-size: 0.92rem; color: var(--ink-dim); }
+
+  /* ---------- print ---------- */
+  @media print {
+    header.nav, .toc a::after { display: none; }
+    body { background: #fff; }
+    .placeholder { border-style: solid; }
+    section.plan-section { page-break-inside: avoid; }
+  }
+
+  footer { padding: 40px 0 70px; border-top: 1px solid var(--line); margin-top: 20px; text-align: center; }
+  footer p { color: var(--ink-dim); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/icons/favicon-32.png" alt="">
+      Pool Master Counter
+    </a>
+    <a class="back-link" href="index.html#contact">&larr; Back to investor overview</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="cover">
+    <span class="kicker">Confidential — Prepared for Prospective Investors</span>
+    <h1>Business Plan</h1>
+    <p class="tagline">Pool Master Counter — the scoreboard pool players actually open, every night.</p>
+    <p class="meta">Version 1.0 · September 2026</p>
+  </div>
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#summary">Executive Summary</a></li>
+      <li><a href="#problem">Problem &amp; Opportunity</a></li>
+      <li><a href="#product">Product Overview</a></li>
+      <li><a href="#market">Market</a></li>
+      <li><a href="#competition">Competitive Landscape</a></li>
+      <li><a href="#business-model">Business Model</a></li>
+      <li><a href="#gtm">Go-to-Market Strategy</a></li>
+      <li><a href="#tech">Technology &amp; IP</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#financials">Financial Plan</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#ask">The Ask</a></li>
+      <li><a href="#risks">Risks &amp; Mitigations</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. EXECUTIVE SUMMARY -->
+  <section class="plan-section" id="summary">
+    <h2><span class="num">1.</span> Executive Summary</h2>
+    <p class="lede">Pool Master Counter is a live pool/billiards scoreboard, stats, and tournament app that runs entirely in the browser — no server, no account, no build step — with a native iOS companion app that has already shipped a real, working monetization mechanism.</p>
+    <p>The product is not a prototype or a mockup: it is a complete, working application in active use today, covering live scoring for every common game type, single/double-elimination and round-robin tournaments, automatic Elo-style player ratings, ten accessible themes, and full localization into English, French, Spanish, and Cantonese. It has near-zero marginal cost to run — the web app is a static site with no backend or database.</p>
+    <p>Unlike most early-stage pitches, the monetization path is not hypothetical: a native Apple StoreKit 2 in-app purchase already unlocks a premium feature on iOS today, alongside a rewarded-ad alternative for players who'd rather not pay. This plan lays out the product, the market it serves, how it makes money, and what it needs to grow.</p>
+  </section>
+
+  <!-- 2. PROBLEM & OPPORTUNITY -->
+  <section class="plan-section" id="problem">
+    <h2><span class="num">2.</span> Problem &amp; Opportunity</h2>
+    <p>Casual and league pool is played every night in bars, clubs, pool halls, and home tables. Today, the people playing it are stuck between three bad options:</p>
+    <ul>
+      <li><strong>Paper and memory.</strong> No history, no stats, nothing to look back on, easy to lose track of who actually won.</li>
+      <li><strong>Generic tally-counter apps.</strong> They count up and down but have no memory of who played, no ratings, and no tournament structure.</li>
+      <li><strong>Heavyweight league-management platforms.</strong> Built for league administrators and organizations, not for a casual group starting a game — often requiring accounts, league membership, or per-venue subscription pricing (see <a href="#competition">Competitive Landscape</a>).</li>
+    </ul>
+    <p>Pool Master Counter sits in the gap: the zero-friction setup of a scoring app, with the real stats and tournament structure of a league platform — usable by two friends at a bar table exactly as well as by a weekly tournament night organizer.</p>
+  </section>
+
+  <!-- 3. PRODUCT OVERVIEW -->
+  <section class="plan-section" id="product">
+    <h2><span class="num">3.</span> Product Overview</h2>
+    <p>The product ships today as a free, installable web app (PWA) and a native iOS app built on the same codebase via Capacitor. Core capabilities:</p>
+    <ul>
+      <li><strong>Setup Wizard</strong> — a five-step flow that gets any table playing in under a minute, no account required.</li>
+      <li><strong>Live scoreboard</strong> — tap-to-score for 8-Ball, 9-Ball, Straight Pool, One Pocket, and more, with automatic win detection and milestone celebrations.</li>
+      <li><strong>Tournaments</strong> — single elimination, double elimination, and round robin, with live brackets and standings.</li>
+      <li><strong>Career stats &amp; ratings</strong> — every player gets a win/loss history, head-to-head records, and an automatic Elo-style rating inspired by the scale FargoRate (the system behind USA Pool League) publishes.</li>
+      <li><strong>Day Reports</strong> — one-tap shareable summaries of a night's play, ready to text, email, or copy.</li>
+      <li><strong>Ten themes, four languages</strong> — dark, bright, and high-contrast palettes with WCAG-legible color computation; full parity across English, French, Spanish, and Cantonese.</li>
+      <li><strong>Local-first data</strong> — everything lives in the browser's local storage on-device. No server, no account, nothing transmitted, with full JSON export/import for backup and device transfer.</li>
+    </ul>
+    <p>See the full feature walkthrough and screenshots in the <a href="index.html#product">investor overview</a> and the <a href="index.html#demo">demo video</a>.</p>
+  </section>
+
+  <!-- 4. MARKET -->
+  <section class="plan-section" id="market">
+    <h2><span class="num">4.</span> Market</h2>
+    <p>Pool and billiards are played casually and competitively worldwide — in bars and pubs with informal leagues, in dedicated pool halls and clubs, and on home tables among regular groups. The target users span a spectrum:</p>
+    <ul>
+      <li>Casual players who just want an honest score kept without pen and paper.</li>
+      <li>Regular groups and home-table owners who play often enough to want stats and history.</li>
+      <li>Bar and pub leagues and weekly tournament nights that currently rely on informal tracking or a paid league platform.</li>
+      <li>Pool halls and clubs looking for a lightweight way to run a tournament night without adopting heavyweight venue-management software.</li>
+    </ul>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>A defensible TAM/SAM/SOM estimate needs sourced data (e.g. participation figures from national pool/billiards federations, league membership counts, or app-store category data) rather than an invented figure. Add sized-market figures here once sourced, or let's pull them together in a follow-up pass.</em></p>
+    </div>
+  </section>
+
+  <!-- 5. COMPETITIVE LANDSCAPE -->
+  <section class="plan-section" id="competition">
+    <h2><span class="num">5.</span> Competitive Landscape</h2>
+    <p>The closest real alternatives are generic scorekeeping apps, practice/club managers, and official league apps — see the full feature-by-feature <a href="index.html#compare">comparison table</a> on the investor overview page. In summary:</p>
+    <div class="table-wrap">
+      <table class="plan-table">
+        <thead><tr><th>Alternative</th><th>Where it falls short for this audience</th></tr></thead>
+        <tbody>
+          <tr><td>The Green Felt Club</td><td>No built-in tournament brackets or skill rating; venue/organizer pricing runs $1,000&ndash;$1,800/year.</td></tr>
+          <tr><td>BilliardManager</td><td>Broader practice/training focus; no portable Elo-style rating; club features sit behind Pro/Club subscriptions.</td></tr>
+          <tr><td>APA Scorekeeper</td><td>Requires official APA league membership — not usable by a casual or non-APA group at all.</td></tr>
+          <tr><td>Paper / generic tally apps</td><td>No stats, no history, no tournament structure.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Pool Master Counter is the only option in this set with zero-setup live scoring, real tournament structure, a portable skill rating, a free web app <em>and</em> native iOS app from one codebase, full localization, and a monetization mechanism already shipped rather than planned.</p>
+  </section>
+
+  <!-- 6. BUSINESS MODEL -->
+  <section class="plan-section" id="business-model">
+    <h2><span class="num">6.</span> Business Model</h2>
+    <p>The monetization approach is freemium, and — unlike most early-stage plans — it is already built and functioning on the native iOS app:</p>
+    <ul>
+      <li><strong>Free core product.</strong> The full scoring, stats, and tournament engine stays free on the web app, which is how the product has earned its users so far.</li>
+      <li><strong>Native in-app purchase.</strong> A one-time Pro unlock, implemented as a real Apple StoreKit 2 purchase, removes the paywall on premium features on the native iOS app — starting with the Colorful Report export.</li>
+      <li><strong>Rewarded-ad alternative.</strong> Players who'd rather not pay can unlock the same premium feature for a single session by watching a short rewarded ad — a familiar, low-friction mobile monetization pattern wired into the same gate.</li>
+      <li><strong>Expandable gate.</strong> The unlock check wraps any feature in one line of code. Deciding what stays free versus Pro is a product decision, not an engineering one — new premium features can ship behind the same infrastructure with no rework.</li>
+      <li><strong>Near-zero cost to serve.</strong> The web app is a static site with no backend, database, or per-user infrastructure cost — gross margin on the free tier is effectively 100%, so growth in the free tier doesn't add to cost, and every converted user drops straight to the bottom line.</li>
+    </ul>
+  </section>
+
+  <!-- 7. GO-TO-MARKET -->
+  <section class="plan-section" id="gtm">
+    <h2><span class="num">7.</span> Go-to-Market Strategy</h2>
+    <p>The zero-friction, no-account design of the free web app is itself a distribution advantage: anyone can start using it from a link with no signup, which lowers the barrier for word-of-mouth spread within a bar, league, or friend group compared to products that require an account or league membership up front.</p>
+    <ol class="plain">
+      <li><strong>Community-first distribution.</strong> Pool is a social game played in identifiable venues and communities (bars, pool halls, leagues) — direct outreach to league organizers and venues, plus organic sharing of Day Reports (which double as a lightweight invitation to try the app), are the primary near-term channels.</li>
+      <li><strong>App Store presence.</strong> The native iOS app extends reach to users who prefer an installed app and enables the StoreKit monetization path; an Android build via the same Capacitor codebase is a natural extension (see <a href="#roadmap">Roadmap</a>).</li>
+      <li><strong>Localization as a wedge.</strong> Full parity across English, French, Spanish, and Cantonese already positions the product for non-English-first pool communities without additional engineering lift.</li>
+    </ol>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>Specific channel budgets, target CAC, partnership targets (e.g. named leagues, venues, or federations) and launch sequencing belong here once decided.</em></p>
+    </div>
+  </section>
+
+  <!-- 8. TECHNOLOGY & IP -->
+  <section class="plan-section" id="tech">
+    <h2><span class="num">8.</span> Technology &amp; IP</h2>
+    <ul>
+      <li><strong>Dependency-free web app.</strong> Plain HTML/CSS/JavaScript, no framework, no build step — the entire app is a static site, making it cheap to host, easy to audit, and resilient to framework churn.</li>
+      <li><strong>Cross-platform from one codebase.</strong> The native iOS app is built via Capacitor, wrapping the same web codebase with native plugins (StoreKit purchases) added where the platform requires it.</li>
+      <li><strong>Custom rating engine.</strong> The Elo-style player rating is a from-scratch implementation matched to FargoRate's published odds and scale — not a licensed or reverse-engineered dependency.</li>
+      <li><strong>Automated test coverage.</strong> A Selenium/pytest browser suite covers the web app end-to-end; a parallel XCUITest suite covers the native iOS app, including the StoreKit purchase flow.</li>
+    </ul>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>Any formal IP position (trademark filings, domain ownership, etc.) should be listed here if applicable.</em></p>
+    </div>
+  </section>
+
+  <!-- 9. ROADMAP -->
+  <section class="plan-section" id="roadmap">
+    <h2><span class="num">9.</span> Roadmap</h2>
+    <p>Reflects the product's actual build order to date, plus proposed near-term milestones.</p>
+    <div class="roadmap">
+      <div class="roadmap-item done">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="when">Shipped</div>
+          <h4>Core web app: scoring, tournaments, stats, ratings, themes, localization</h4>
+          <p>Live and in active use as a free PWA.</p>
+        </div>
+      </div>
+      <div class="roadmap-item done">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="when">Shipped</div>
+          <h4>Native iOS app with a working StoreKit paywall</h4>
+          <p>Real Apple in-app purchase and rewarded-ad unlock gating a premium feature, tested end-to-end.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="when">Next</div>
+          <h4>App Store launch</h4>
+          <p>Submit the native iOS app for public App Store distribution.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="when">Next</div>
+          <h4>Expand what's Pro-gated</h4>
+          <p>Use real usage data to decide which additional features move behind the existing paywall infrastructure.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="when">Proposed</div>
+          <h4>Android app</h4>
+          <p>Same Capacitor codebase, extended to Google Play with an equivalent purchase flow.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <div class="when">Proposed</div>
+          <h4>Venue &amp; league organizer tools</h4>
+          <p>Optional shared/cloud features for organizers running multi-table tournament nights, layered on top of the existing local-first core.</p>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>Add target dates once resourcing and the funding timeline are set.</em></p>
+    </div>
+  </section>
+
+  <!-- 10. FINANCIAL PLAN -->
+  <section class="plan-section" id="financials">
+    <h2><span class="num">10.</span> Financial Plan</h2>
+    <p>The model below is <strong>illustrative</strong> — it demonstrates how the unit economics work, using placeholder assumptions rather than real projections. Replace the highlighted inputs with real assumptions before sharing this section externally.</p>
+    <div class="table-wrap">
+      <table class="plan-table">
+        <thead><tr><th>Illustrative driver</th><th>Placeholder assumption</th></tr></thead>
+        <tbody>
+          <tr><td>Free web/PWA active users</td><td class="num">[X]</td></tr>
+          <tr><td>Native iOS installs</td><td class="num">[X]</td></tr>
+          <tr><td>iOS Pro conversion rate</td><td class="num">[X]%</td></tr>
+          <tr><td>Pro unlock price</td><td class="num">$[X.XX]</td></tr>
+          <tr><td>Rewarded-ad eCPM / fill rate</td><td class="num">[X]</td></tr>
+          <tr><td>Apple's platform fee</td><td class="num">15&ndash;30%<span style="font-weight:400;color:var(--ink-dim);"> (standard/Small Business Program)</span></td></tr>
+          <tr><td>Hosting &amp; infrastructure cost</td><td class="num">~$0 marginal<span style="font-weight:400;color:var(--ink-dim);"> (static site)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>This plan intentionally does not include invented revenue/user projections. Once real assumptions (current install base, actual conversion data if any, target pricing) are provided, this section should be replaced with a 12&ndash;36 month projection table (revenue, costs, burn, runway) built from those numbers.</em></p>
+    </div>
+  </section>
+
+  <!-- 11. TEAM -->
+  <section class="plan-section" id="team">
+    <h2><span class="num">11.</span> Team</h2>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>Add founder(s) and any team members here — name, role, relevant background, and what they've personally built or shipped on this product. Investors weight the team section heavily; this should not stay a placeholder for long.</em></p>
+    </div>
+  </section>
+
+  <!-- 12. THE ASK -->
+  <section class="plan-section" id="ask">
+    <h2><span class="num">12.</span> The Ask</h2>
+    <div class="placeholder">
+      <span class="tag">Founder input needed</span>
+      <p><em>Add the specific raise amount, instrument (e.g. SAFE, priced round), and use of funds (e.g. App Store launch &amp; marketing, expanding the gated feature set, Android build, one additional engineer) once decided. A vague or absent ask is a common reason investors pass — this is worth finalizing before sharing the plan externally.</em></p>
+    </div>
+  </section>
+
+  <!-- 13. RISKS -->
+  <section class="plan-section" id="risks">
+    <h2><span class="num">13.</span> Risks &amp; Mitigations</h2>
+    <ul>
+      <li><strong>Platform dependency risk.</strong> The native monetization path depends on Apple's App Store policies and fee structure. <em>Mitigation:</em> the free web app is fully independent of any app store and continues to function regardless of iOS platform changes.</li>
+      <li><strong>Conversion risk.</strong> Freemium pool apps are unproven at scale for this specific model. <em>Mitigation:</em> the rewarded-ad path gives a second, lower-friction monetization route alongside the direct purchase, and the paywall gate is cheap to re-target at different features.</li>
+      <li><strong>Competitive risk.</strong> Named competitors (Section 5) have existing users and, in some cases, official league relationships (e.g. APA). <em>Mitigation:</em> Pool Master Counter's zero-account, zero-cost entry point targets the large casual segment those products don't serve well.</li>
+      <li><strong>Distribution risk.</strong> As a bootstrapped, community-distributed product, growth may be slower than a paid-acquisition strategy. <em>Mitigation:</em> near-zero hosting cost means the product can sustain a long organic growth runway without burning capital on infrastructure.</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="callout gold" style="text-align:center;">
+    <p style="margin-bottom:6px;"><strong>Questions, or want the underlying data behind any section?</strong></p>
+    <p style="margin-bottom:0;"><a href="mailto:alchemist@thebotanicalalchemy.com?subject=Pool%20Master%20Counter%20—%20Business%20Plan">alchemist@thebotanicalalchemy.com</a> · <a href="index.html">Back to the investor overview</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Pool Master Counter. Confidential — prepared for prospective investors and partners. Not for distribution without permission.</p>
+</footer>
+
+</body>
+</html>
