@@ -9,18 +9,20 @@
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --felt: #0e2e24; --felt-deep: #081a15; --felt-light: #143c2f;
-    --bg: #faf7f1; --ink: #1c211d; --ink-dim: #5b6459;
-    --gold: #c99a3d; --gold-bright: #f0cd7e; --gold-ink: #8a661d;
-    --crimson: #a4283a;
-    --line: rgba(28, 33, 29, 0.10);
+    /* Pearl Lounge palette - matches index.html and the app's own
+       :root[data-theme="pearl-lounge"] tokens. */
+    --felt: #e4dde8; --felt-deep: #2a2430; --felt-light: #f8f5fa;
+    --bg: #f4f2f6; --ink: #2a2430; --ink-dim: #7d7284;
+    --gold: #c8973f; --gold-bright: #e3b866; --gold-ink: #8a661d;
+    --crimson: #6b2d5c;
+    --line: rgba(42, 36, 48, 0.10);
     --card: #ffffff;
-    --card-border: rgba(28, 33, 29, 0.09);
-    --placeholder-bg: rgba(164, 40, 58, 0.06);
-    --placeholder-border: rgba(164, 40, 58, 0.35);
+    --card-border: #e3dbe8;
+    --placeholder-bg: rgba(107, 45, 92, 0.06);
+    --placeholder-border: rgba(107, 45, 92, 0.3);
     --maxw: 840px;
   }
 
@@ -38,7 +40,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; margin: 0; letter-spacing: -0.01em; color: var(--ink); }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; margin: 0; letter-spacing: -0.01em; color: var(--ink); }
 
   a { color: var(--gold-ink); }
 
@@ -57,7 +59,7 @@
     max-width: var(--maxw); margin: 0 auto; padding: 14px 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
-  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.02rem; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.02rem; text-decoration: none; color: var(--ink); white-space: nowrap; }
   .brand img { width: 26px; height: 26px; border-radius: 7px; }
   .back-link { font-size: 0.85rem; color: var(--ink-dim); text-decoration: none; white-space: nowrap; }
   .back-link:hover { color: var(--gold-ink); }
@@ -125,7 +127,7 @@
   .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--card-border); background: #fff; margin: 16px 0; }
   table.plan-table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 0.9rem; }
   table.plan-table th, table.plan-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--card-border); }
-  table.plan-table thead th { font-family: 'Fraunces', serif; font-weight: 600; color: var(--ink-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.plan-table thead th { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--ink-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
   table.plan-table tbody tr:last-child td { border-bottom: none; }
   table.plan-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
 
