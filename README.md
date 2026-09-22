@@ -27,4 +27,6 @@ The League system (standings, teams, multi-table hosting, and APA/BCA/VNBA/TAP h
 
 ## Demo video
 
-`assets/demo/pool-master-counter-demo.mp4` predates the League system — it covers everything before that. Re-recording it (new scenes + updated narration) needs live screen capture via browser automation, which wasn't available when the League showcase above was built.
+`assets/demo/pool-master-counter-demo.mp4` predates the League system — it covers everything before that. Re-recording it (new scenes + updated narration) needs live screen capture via browser automation.
+
+`assets/demo/league-play-walkthrough.mp4` covers League Play specifically: an 80-second Ken-Burns-style tour built from the real `league-*.jpg` screenshots (zoom/pan via ffmpeg `zoompan`) narrated with macOS `say -v Daniel` (en_GB), assembled per-scene and concatenated with ffmpeg. It exists as a screenshot-based video rather than a live screen recording because this environment had no authorized `avfoundation` screen-capture device for ffmpeg (macOS Screen Recording permission wasn't granted) — if that's available in a future session, a live-capture re-record of both videos together would be the better long-term version. The build script lived in `/tmp/pmc-capture/video/build_scene.sh` (scratch, not committed); recreate it from this description if regenerating.
