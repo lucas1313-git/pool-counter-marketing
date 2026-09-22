@@ -297,56 +297,17 @@
   @media (max-width: 980px) { .league-mockups { grid-template-columns: 1fr; } }
   .mock-col { display: flex; flex-direction: column; gap: 26px; }
 
-  /* A miniature, faithful recreation of the app's own UI chrome in the
-     Pearl Lounge theme - same border-radius/shadow/border language as
-     the app's real .panel/.league-table-slot, same token names even,
-     just scaled down and hand-populated with sample data since the
-     League feature is brand new and has no real screenshot yet. */
-  .mock-frame {
+  /* Real screenshots of the League system, captured live in the app's
+     own Pearl Lounge theme - same framed-shot treatment as the other
+     showcase sections, just with a taller max-height since these
+     (especially the handicap modals) run tall. */
+  .league-shot {
     position: relative;
-    background: #fff; border: 1px solid var(--border); border-radius: 16px;
-    box-shadow: 0 20px 40px -24px rgba(42,36,48,0.28);
-    overflow: hidden;
+    border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+    background: var(--felt-deep); box-shadow: 0 20px 40px -24px rgba(42,36,48,0.28);
+    display: flex; align-items: center; justify-content: center; padding: 10px;
   }
-  .mock-titlebar {
-    background: linear-gradient(180deg, var(--felt-light), var(--felt));
-    border-bottom: 1px solid var(--border);
-    padding: 10px 16px; font-size: 0.78rem; font-weight: 700; color: var(--ink-dim);
-    text-transform: uppercase; letter-spacing: 0.05em;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .mock-body { padding: 18px; font-family: 'Inter', sans-serif; }
-  .mock-heading { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-  .mock-heading h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--ink); margin: 0; }
-  .mock-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #fff; border: 1px solid var(--border); color: var(--ink);
-    font-size: 0.78rem; font-weight: 700; padding: 7px 12px; border-radius: 9px;
-  }
-  .mock-btn.primary { background: linear-gradient(180deg, var(--accent-bright), var(--accent)); color: #fbf8fc; border-color: transparent; }
-  .mock-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  .mock-table th { text-align: left; color: var(--ink-dim); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 6px 8px; border-bottom: 1px solid var(--border); }
-  .mock-table td { padding: 8px; border-bottom: 1px solid #f0ebf2; color: var(--ink); }
-  .mock-table tr:last-child td { border-bottom: none; }
-  .mock-badge { background: var(--felt); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-size: 0.72rem; font-weight: 700; margin-left: 6px; }
-  .mock-select {
-    background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px;
-    font-size: 0.78rem; color: var(--ink); display: inline-flex; align-items: center; gap: 6px;
-  }
-  .mock-select:after { content: "▾"; color: var(--ink-dim); font-size: 0.7rem; }
-  .mock-note { font-size: 0.78rem; color: var(--ink-dim); margin-top: 10px; line-height: 1.5; }
-  .mock-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
-  @media (max-width: 460px) { .mock-cards { grid-template-columns: 1fr; } }
-  .mock-slot {
-    background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px;
-    font-size: 0.78rem;
-  }
-  .mock-slot .slot-heading { font-weight: 800; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-dim); margin-bottom: 8px; }
-  .mock-queue-box {
-    margin-top: 8px; background: color-mix(in srgb, #fff 82%, var(--border));
-    border: 1px solid var(--border); border-radius: 9px; padding: 9px;
-  }
-  .mock-queue-box .qlabel { font-weight: 700; font-size: 0.72rem; color: var(--ink-dim); margin-bottom: 4px; }
+  .league-shot img { border-radius: 10px; width: 100%; height: auto; object-fit: contain; max-height: 640px; }
   .mock-figcaption { text-align: center; font-size: 0.86rem; color: var(--ink-dim); margin-top: 10px; }
   .mock-figcaption b { color: var(--ink); }
 
@@ -445,7 +406,7 @@
           <source src="assets/demo/pool-master-counter-demo.mp4" type="video/mp4">
         </video>
       </div>
-      <p class="video-note">This walkthrough predates the League system below (Standings, Teams, multi-table hosting, and APA/BCA/VNBA/TAP handicapping) — a refreshed cut covering it is next on the list. The League showcase further down uses faithful, hand-built recreations of the real UI in the meantime, not screenshots.</p>
+      <p class="video-note">This walkthrough predates the League system below (Standings, Teams, multi-table hosting, and APA/BCA/VNBA/TAP handicapping) — a refreshed cut covering it is next on the list. See real screenshots of the League system in the showcase further down.</p>
       <p style="text-align:center; margin-top:22px;">
         <a class="btn btn-ghost" href="business-plan.html">📄 Read the full business plan</a>
       </p>
@@ -528,111 +489,67 @@
           <div class="mock-col">
 
             <!-- Standings with sort -->
-            <figure class="mock-frame" style="margin:0;">
-              <div class="mock-titlebar"><span>Friday Night League</span><span>Standings</span></div>
-              <div class="mock-body">
-                <div class="mock-heading">
-                  <span style="font-size:0.78rem;color:var(--ink-dim);">Sort by</span>
-                  <span class="mock-select" id="callout-sort">Fargo Rating</span>
-                </div>
-                <table class="mock-table">
-                  <tr><th>Member</th><th>SL</th><th>Points</th><th>W-L</th></tr>
-                  <tr><td>Alice <span class="mock-badge">490</span></td><td>5</td><td>10</td><td>5-0</td></tr>
-                  <tr><td>Dana <span class="mock-badge">458</span></td><td>5</td><td>6</td><td>3-2</td></tr>
-                  <tr><td>Bob <span class="mock-badge">469</span></td><td>5</td><td>4</td><td>2-3</td></tr>
-                  <tr><td>Carl <span class="mock-badge">318</span></td><td>4</td><td>2</td><td>1-3</td></tr>
-                </table>
-                <p class="mock-note">Sort the whole league by Points, Name, or Fargo Rating — rows animate to their new position on re-sort instead of jumping, so it's obvious who moved.</p>
+            <figure style="margin:0;">
+              <div class="league-shot">
+                <img src="assets/screenshots/league-standings.jpg" alt="League standings table, sortable by Points, Name, or Rating, with each member's rating badge next to their name">
+                <div class="callout" style="left:6%; top:8%; width:30%; height:15%;"></div>
               </div>
             </figure>
-            <p class="mock-figcaption"><b>Standings</b> — sortable, with animated re-ordering</p>
+            <p class="mock-figcaption"><b>Standings</b> — sort by Points, Name, or Rating; every member's rating badge is right there next to their name</p>
 
             <!-- Tables overview: idle + occupied, queue in a border -->
-            <figure class="mock-frame" style="margin:0; position:relative;">
-              <div class="mock-titlebar"><span>Tables</span><span>2 running</span></div>
-              <div class="mock-body">
-                <div class="mock-cards">
-                  <div class="mock-slot">
-                    <div class="slot-heading">Table 1</div>
-                    <div style="font-size:0.74rem;color:var(--ink-dim);margin-bottom:4px;">Team A</div>
-                    <div class="mock-select" style="width:100%;justify-content:space-between;margin-bottom:6px;">Bulls</div>
-                    <div style="font-size:0.74rem;color:var(--ink-dim);margin-bottom:4px;">Team B</div>
-                    <div class="mock-select" style="width:100%;justify-content:space-between;">Sharks</div>
-                    <div class="mock-queue-box" id="callout-queue">
-                      <div class="qlabel">Table 1 Queue</div>
-                      <div style="color:var(--ink);">1. Alice&nbsp;&nbsp;2. Bob</div>
-                    </div>
-                  </div>
-                  <div class="mock-slot" style="border-color:var(--accent);">
-                    <div class="slot-heading">Table 2</div>
-                    <div style="font-weight:700;color:var(--ink);">Dana vs Carl</div>
-                    <div style="color:var(--ink-dim);margin-top:2px;">3 / 5&nbsp;&nbsp;:&nbsp;&nbsp;1 / 4</div>
-                    <div class="mock-btn" style="margin-top:10px;">Jump to Board</div>
-                  </div>
-                </div>
-                <p class="mock-note">Every physical table gets its own live board and its own queue — a match finishing on one never touches the others.</p>
+            <figure style="margin:0;">
+              <div class="league-shot">
+                <img src="assets/screenshots/league-tables.jpg" alt="Tables Overview: Table 1 idle with a per-table queue, Table 2 live with a running match score">
+                <div class="callout" style="left:2%; top:34%; width:46%; height:49%;"></div>
               </div>
             </figure>
-            <p class="mock-figcaption"><b>Tables Overview</b> — multi-table hosting, per-table queue in its own border</p>
+            <p class="mock-figcaption"><b>Tables Overview</b> — multi-table hosting, per-table queue in its own border, live scores at a glance</p>
 
           </div>
 
           <div class="mock-col">
 
             <!-- Handicap system picker + View Table button -->
-            <figure class="mock-frame" style="margin:0;">
-              <div class="mock-titlebar"><span>League Setup</span><span>Handicap</span></div>
-              <div class="mock-body">
-                <div class="mock-heading" style="justify-content:space-between;">
-                  <h4>Friday Night League — BCA 8-Ball</h4>
-                </div>
-                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
-                  <span style="font-size:0.78rem;color:var(--ink-dim);">Rating System</span>
-                  <span class="mock-select">BCA</span>
-                  <span class="mock-btn" id="callout-viewtable" style="position:relative;">📊 View BCA Table</span>
-                </div>
-                <p class="mock-note">Four systems, four real behaviors: <b>APA</b> uses the real published nationwide chart. <b>VNBA</b> and <b>TAP</b> give you an editable Skill Level chart, pre-filled to start from. <b>BCA</b> uniquely keys off each player's own app Rating and scales by the gap between opponents — the way real Fargo-based handicapping actually works.</p>
+            <figure style="margin:0;">
+              <div class="league-shot">
+                <img src="assets/screenshots/league-header.jpg" alt="League name heading with a View APA Table button right beside it">
+                <div class="callout" style="left:39%; top:2%; width:23%; height:60%;"></div>
               </div>
             </figure>
-            <p class="mock-figcaption"><b>Pick a system</b> — each one governs match targets its own way</p>
+            <p class="mock-figcaption"><b>Pick a system</b> — APA, BCA, VNBA, or TAP; a View Table button sits right beside the league name</p>
 
             <!-- BCA ratio table -->
-            <figure class="mock-frame" style="margin:0;">
-              <div class="mock-titlebar"><span>BCA 8-Ball</span><span>Handicap Ratio</span></div>
-              <div class="mock-body">
-                <table class="mock-table">
-                  <tr><th>Rating Gap</th><th>Extra Games</th></tr>
-                  <tr><td>4</td><td>+1</td></tr>
-                  <tr><td>12</td><td>+3</td></tr>
-                  <tr><td>40</td><td>+10</td></tr>
-                </table>
-                <p class="mock-note">Read-only by design: BCA has no per-player number to edit, just the ratio applied to whoever's actually racking up — the lower-rated player always races to Base Games to Win.</p>
+            <figure style="margin:0;">
+              <div class="league-shot">
+                <img src="assets/screenshots/league-handicap-bca.jpg" alt="BCA 8-Ball Handicap Ratio modal: a rating-gap to extra-games table, read-only">
+                <div class="callout" style="left:4%; top:41%; width:92%; height:6%;"></div>
               </div>
             </figure>
-            <p class="mock-figcaption"><b>BCA</b> — rating-gap ratio, not a lookup table</p>
+            <p class="mock-figcaption"><b>BCA</b> — rating-gap ratio, not a lookup table: every 4 points of gap between the two actual opponents adds one more game</p>
 
             <!-- APA player matchup -->
-            <figure class="mock-frame" style="margin:0;">
-              <div class="mock-titlebar"><span>APA 8-Ball</span><span>Handicap Chart</span></div>
-              <div class="mock-body">
-                <div class="mock-heading">
-                  <span style="font-size:0.78rem;color:var(--ink-dim);">See it for</span>
-                  <span class="mock-select">Alice</span>
-                </div>
-                <table class="mock-table">
-                  <tr><th>Opponent</th><th>You Need</th><th>They Need</th></tr>
-                  <tr><td>Bob</td><td>5</td><td>5</td></tr>
-                  <tr><td>Carl</td><td>5</td><td>4</td></tr>
-                </table>
-                <p class="mock-note">APA's own published chart, applied to your actual roster — pick anyone and see exactly what both sides need against every other member.</p>
+            <figure style="margin:0;">
+              <div class="league-shot">
+                <img src="assets/screenshots/league-handicap-apa.jpg" alt="APA 8-Ball Chart modal: pick a player and see You Need / They Need against every other member, plus the full nationwide Skill Level chart">
+                <div class="callout" style="left:13%; top:17%; width:83%; height:6%;"></div>
               </div>
             </figure>
-            <p class="mock-figcaption"><b>APA</b> — per-player target, matched against every real opponent</p>
+            <p class="mock-figcaption"><b>APA</b> — pick anyone in the league and see exactly what both sides need against every other real member</p>
+
+            <!-- VNBA editable chart -->
+            <figure style="margin:0;">
+              <div class="league-shot">
+                <img src="assets/screenshots/league-handicap-vnba.jpg" alt="VNBA 8-Ball Chart modal: an editable Skill Level to Games-to-Win table with a Save button">
+                <div class="callout" style="left:40%; top:44%; width:14%; height:5%;"></div>
+              </div>
+            </figure>
+            <p class="mock-figcaption"><b>VNBA &amp; TAP</b> — no published nationwide chart, so it's yours to edit and save with the league</p>
 
           </div>
         </div>
 
-        <p style="text-align:center; margin-top:38px; font-size:0.86rem; color:var(--ink-dim);">The four mockups above are built from the app's own real markup and Pearl Lounge color tokens, hand-populated with sample data — the League system shipped too recently for a captured screenshot set.</p>
+        <p style="text-align:center; margin-top:38px; font-size:0.86rem; color:var(--ink-dim);">Real screenshots, captured live from the app in its own Pearl Lounge theme.</p>
       </div>
     </div>
   </section>

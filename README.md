@@ -23,7 +23,7 @@ A handful of screenshots have a gold circle overlay (`.callout` in `index.html`)
 
 ## League Play section
 
-The League system (standings, teams, multi-table hosting, and APA/BCA/VNBA/TAP handicapping) shipped after the last full screenshot pass, so it has no captured screenshots yet. Its showcase section (`#league` in `index.html`) uses hand-built HTML/CSS mockups instead — real markup and the same Pearl Lounge color tokens as the rest of the page, populated with sample data. Swap these for real screenshots (with `.callout` circles) once a browser-automation pass can capture them.
+The League system (standings, teams, multi-table hosting, and APA/BCA/VNBA/TAP handicapping) has its own showcase section (`#league` in `index.html`), built from real screenshots (`assets/screenshots/league-*.jpg`) captured live from the app itself, seeded with sample data via `localStorage` and shot headlessly (Chrome + `puppeteer-core`, not the Claude-in-Chrome extension — useful if the extension is ever unavailable again). Each screenshot sits in a `.league-shot` frame (same treatment as `.showcase-shot`, just with a taller `max-height` for the tall handicap-modal shots) with a `.callout` circle over the specific control being described.
 
 ## Demo video
 
