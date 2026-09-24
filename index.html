@@ -324,6 +324,17 @@
     border-radius: 12px; padding: 12px 18px;
   }
 
+  /* ---------- quick how-to video grid ---------- */
+  .howto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 44px; }
+  @media (max-width: 760px) { .howto-grid { grid-template-columns: 1fr; } }
+  .howto-card { margin: 0; }
+  .howto-card video {
+    width: 100%; display: block; border-radius: var(--radius); border: 1px solid var(--card-border);
+    background: #000; box-shadow: 0 20px 40px -22px rgba(42,36,48,0.3);
+  }
+  .howto-card figcaption { margin-top: 12px; font-size: 0.92rem; color: var(--ink-dim); text-align: center; }
+  .howto-card figcaption b { color: var(--ink); }
+
   /* ---------- CTA / contact ---------- */
   .cta-section {
     text-align: center; border-radius: 26px; padding: 70px 40px;
@@ -355,6 +366,7 @@
     </a>
     <nav class="links">
       <a href="#demo">Demo</a>
+      <a href="#howto">How-To</a>
       <a href="#product">Product</a>
       <a href="#league">League Play</a>
       <a href="#tournaments">Tournaments</a>
@@ -410,6 +422,31 @@
       <p style="text-align:center; margin-top:22px;">
         <a class="btn btn-ghost" href="business-plan.html">📄 Read the full business plan</a>
       </p>
+    </div>
+  </section>
+
+  <!-- QUICK HOW-TOS -->
+  <section id="howto">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Quick How-Tos</span>
+        <h2>One feature, one minute</h2>
+        <p>Short, narrated clips pulled straight from the app's own built-in Help system — pick a topic, watch it in under a minute.</p>
+      </div>
+      <div class="howto-grid">
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-export-import-poster.jpg">
+            <source src="assets/demo/howto-export-import.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Export &amp; Import</b> — moving your data between devices</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-rotation-poster.jpg">
+            <source src="assets/demo/howto-rotation.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Games Rotation</b> — cycling through game types automatically</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
