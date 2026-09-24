@@ -325,8 +325,9 @@
   }
 
   /* ---------- quick how-to video grid ---------- */
-  .howto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 44px; }
-  @media (max-width: 760px) { .howto-grid { grid-template-columns: 1fr; } }
+  .howto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 44px; }
+  @media (max-width: 1000px) { .howto-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .howto-grid { grid-template-columns: 1fr; } }
   .howto-card { margin: 0; }
   .howto-card video {
     width: 100%; display: block; border-radius: var(--radius); border: 1px solid var(--card-border);
@@ -445,6 +446,72 @@
             <source src="assets/demo/howto-rotation.mp4" type="video/mp4">
           </video>
           <figcaption><b>Games Rotation</b> — cycling through game types automatically</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-wizard-poster.jpg">
+            <source src="assets/demo/howto-wizard.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Setup Wizard</b> — the fastest way to start playing</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-scoreboard-poster.jpg">
+            <source src="assets/demo/howto-scoreboard.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Scoreboard &amp; Focus Mode</b> — tracking a live game full screen</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-currentsession-poster.jpg">
+            <source src="assets/demo/howto-currentsession.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Current Session</b> — race format, Fair Race, and the shot counter</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-players-poster.jpg">
+            <source src="assets/demo/howto-players.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Players</b> — adding and managing tonight's roster</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-standings-poster.jpg">
+            <source src="assets/demo/howto-standings.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Standings</b> — live race progress for tonight's session</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-recentgames-poster.jpg">
+            <source src="assets/demo/howto-recentgames.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Recent Games</b> — a rolling 24-hour log of every game</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-dayreport-poster.jpg">
+            <source src="assets/demo/howto-dayreport.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Publish Daily Report</b> — turn tonight into a shareable summary</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-resets-poster.jpg">
+            <source src="assets/demo/howto-resets.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>All Resets</b> — every reset button, gathered in one place</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-allplayers-poster.jpg">
+            <source src="assets/demo/howto-allplayers.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>All Players</b> — every player who's ever played on this device</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-playerpage-poster.jpg">
+            <source src="assets/demo/howto-playerpage.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Player Stats Page</b> — tap any name to see their whole career</figcaption>
+        </figure>
+        <figure class="howto-card">
+          <video controls preload="metadata" poster="assets/demo/howto-tournament-poster.jpg">
+            <source src="assets/demo/howto-tournament.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Tournament</b> — four formats, each explained inline</figcaption>
         </figure>
       </div>
     </div>
